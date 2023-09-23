@@ -1,0 +1,10 @@
+<ng-container *ngIf="this.filteredNotifications$ | async as notifications">
+  <veera-global-notification
+    *ngFor="let n of notifications"
+    [heading]="n?.title"
+    [type]="n.type"
+    (close)="close(n.uuid)"
+  >
+    <div [innerHTML]="n.content"></div>
+  </veera-global-notification>
+</ng-container>
